@@ -1,9 +1,21 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import Image from 'next/image'
+import styles from './page.module.css'
+import { Container } from './style.css'
+import { useEffect } from 'react'
 
 export default function Home() {
+  useEffect(() => {
+    console.log(
+      `Como o arquivo 'app/page.tsx' possui interação (com UseEffect), 
+       necessário usar a flag 'use client' para renderizar sem erros`
+    )
+  }, [])
   return (
     <main className={styles.main}>
+      <div role="heading" aria-level={1} className={Container}>
+        <h2>alo</h2>
+      </div>
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -15,7 +27,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{" "}
+            By{' '}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -91,5 +103,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  );
+  )
 }
